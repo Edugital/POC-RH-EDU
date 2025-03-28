@@ -1,0 +1,51 @@
+# Prevent directory listing
+Options -Indexes
+
+# Enable rewrite engine
+RewriteEngine On
+
+# Redireciona para HTTPS se não estiver em localhost
+RewriteCond %{HTTP_HOST} !^localhost
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Define o diretório base
+RewriteBase /mocks/rh-edu/vixpar/
+
+# Redireciona index.php para a raiz
+RewriteRule ^index\.php$ / [R=301,L]
+
+# Permite acesso direto a arquivos e diretórios existentes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redireciona todas as outras requisições para o index.php
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+# Prevent access to sensitive files
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# PHP settings
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value max_execution_time 300
+php_value max_input_time 300
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Compressão GZIP
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript
+</IfModule>
+
+# Disable server signature
+ServerSignature Off 

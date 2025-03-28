@@ -1,0 +1,172 @@
+/* Main Styles */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --info-color: #17a2b8;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+}
+
+/* Layout */
+.content-wrapper {
+    padding: 20px;
+}
+
+/* Cards */
+.metric-card {
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Tables */
+.courses-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.courses-table th,
+.courses-table td {
+    padding: 12px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Progress Bars */
+.progress {
+    height: 8px;
+    margin: 8px 0;
+    border-radius: 4px;
+}
+
+/* Badges */
+.badge {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* Buttons */
+.btn-details {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .metric-card {
+        margin-bottom: 15px;
+    }
+    
+    .courses-table {
+        font-size: 14px;
+    }
+}
+
+/* Top Bar Styles */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.top-bar-right .dropdown {
+    position: relative;
+}
+
+.top-bar-right .dropdown .btn-link {
+    color: #333;
+    text-decoration: none;
+    padding: 8px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.top-bar-right .dropdown .btn-link:hover,
+.top-bar-right .dropdown .btn-link:focus {
+    color: #1a237e;
+    text-decoration: none;
+}
+
+.top-bar-right .dropdown .btn-link::after {
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: 2px;
+}
+
+.top-bar-right .dropdown-menu {
+    position: absolute;
+    inset: 0px auto auto 0px;
+    margin: 0;
+    transform: translate3d(0px, 40px, 0px);
+    min-width: 200px;
+    padding: 8px 0;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.top-bar-right .dropdown-menu.show {
+    display: block;
+}
+
+.top-bar-right .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+    background: none;
+    border: 0;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+
+.top-bar-right .dropdown-item:hover,
+.top-bar-right .dropdown-item:focus {
+    background-color: #f8f9fa;
+    color: #1a237e;
+}
+
+.notifications {
+    position: relative;
+    cursor: pointer;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #d32f2f;
+    color: white;
+    border-radius: 50%;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    min-width: 20px;
+    text-align: center;
+} 

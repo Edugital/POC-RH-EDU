@@ -1,0 +1,264 @@
+/* Mobile Form Styles */
+@media screen and (max-width: 768px) {
+    /* Form Container */
+    form {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 1rem;
+    }
+
+    /* Form Groups */
+    .form-group {
+        position: relative;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group.focused {
+        z-index: 1;
+    }
+
+    /* Labels */
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #374151;
+    }
+
+    /* Inputs */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 16px; /* Prevent zoom on iOS */
+        line-height: 1.5;
+        color: #111827;
+        background-color: #fff;
+        border: 1px solid #d1d5db;
+        border-radius: 0.375rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    /* File Inputs */
+    .custom-file-input {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-top: 0.5rem;
+    }
+
+    .custom-file-label {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #374151;
+        background-color: #f3f4f6;
+        border: 1px solid #d1d5db;
+        border-radius: 0.375rem;
+        cursor: pointer;
+        transition: background-color 0.15s ease-in-out;
+    }
+
+    .custom-file-label:hover {
+        background-color: #e5e7eb;
+    }
+
+    .file-name {
+        margin-left: 0.5rem;
+        font-size: 0.875rem;
+        color: #6b7280;
+    }
+
+    /* Select Inputs */
+    .custom-select {
+        position: relative;
+    }
+
+    .custom-select-label {
+        display: block;
+        padding: 0.75rem;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #111827;
+        background-color: #fff;
+        border: 1px solid #d1d5db;
+        border-radius: 0.375rem;
+        cursor: pointer;
+    }
+
+    .select-options {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        display: none;
+        max-height: 200px;
+        margin-top: 0.25rem;
+        background-color: #fff;
+        border: 1px solid #d1d5db;
+        border-radius: 0.375rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        overflow-y: auto;
+    }
+
+    .select-options.show {
+        display: block;
+    }
+
+    .select-option {
+        padding: 0.75rem;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #111827;
+        cursor: pointer;
+        transition: background-color 0.15s ease-in-out;
+    }
+
+    .select-option:hover {
+        background-color: #f3f4f6;
+    }
+
+    /* Checkboxes and Radios */
+    .form-group input[type="checkbox"],
+    .form-group input[type="radio"] {
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-right: 0.5rem;
+        vertical-align: middle;
+    }
+
+    /* Validation */
+    .form-group.has-error input,
+    .form-group.has-error select,
+    .form-group.has-error textarea {
+        border-color: #ef4444;
+    }
+
+    .form-group.has-error input:focus,
+    .form-group.has-error select:focus,
+    .form-group.has-error textarea:focus {
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+
+    .validation-error {
+        margin-top: 0.5rem;
+        font-size: 0.875rem;
+        color: #ef4444;
+    }
+
+    /* Character Count */
+    .character-count {
+        position: absolute;
+        right: 0.75rem;
+        bottom: 0.75rem;
+        font-size: 0.75rem;
+        color: #6b7280;
+    }
+
+    .character-count.exceeded {
+        color: #ef4444;
+    }
+
+    /* Form Actions */
+    .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        margin-top: 2rem;
+    }
+
+    .form-actions button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        line-height: 1.5;
+        border-radius: 0.375rem;
+        cursor: pointer;
+        transition: all 0.15s ease-in-out;
+    }
+
+    .form-actions button[type="submit"] {
+        color: #fff;
+        background-color: #3b82f6;
+        border: 1px solid #3b82f6;
+    }
+
+    .form-actions button[type="submit"]:hover {
+        background-color: #2563eb;
+        border-color: #2563eb;
+    }
+
+    .form-actions button[type="button"] {
+        color: #374151;
+        background-color: #f3f4f6;
+        border: 1px solid #d1d5db;
+    }
+
+    .form-actions button[type="button"]:hover {
+        background-color: #e5e7eb;
+        border-color: #9ca3af;
+    }
+
+    /* Landscape Mode */
+    @media screen and (orientation: landscape) {
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            font-size: 16px;
+        }
+    }
+
+    /* High DPI Screens */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            border-width: 1px;
+        }
+    }
+}
+
+/* Landscape orientation */
+@media (max-height: 480px) and (orientation: landscape) {
+    .form-container {
+        padding: 0.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .form-control {
+        padding: 0.5rem;
+    }
+    
+    .btn-submit {
+        padding: 0.75rem;
+    }
+}
+
+/* High-DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .form-control {
+        border-width: 0.5px;
+    }
+} 

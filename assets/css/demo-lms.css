@@ -1,0 +1,328 @@
+/* Estilos para a página LMS */
+
+/* Variáveis CSS */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --border-color: #dee2e6;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.075);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 1rem;
+}
+
+/* Estilos Gerais */
+.content-wrapper {
+    background-color: var(--light-color);
+    min-height: calc(100vh - 3.5rem);
+}
+
+/* Cabeçalho */
+.content-header {
+    background-color: white;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.content-header h1 {
+    color: var(--dark-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Cards */
+.card {
+    border: none;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+    margin-bottom: 1.5rem;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.card-header {
+    background-color: white;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem;
+}
+
+.card-title {
+    color: var(--dark-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+/* Formulários */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    padding: 0.5rem 0.75rem;
+    transition: var(--transition-fast);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+}
+
+/* Botões */
+.btn {
+    border-radius: var(--border-radius-sm);
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Trilhas de Aprendizagem */
+.learning-paths {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.learning-path-item {
+    background-color: white;
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+}
+
+.learning-path-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.path-info h4 {
+    color: var(--dark-color);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.path-info p {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.path-progress {
+    margin-top: 1rem;
+}
+
+.path-progress .progress {
+    height: 0.5rem;
+    background-color: #e9ecef;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 0.5rem;
+}
+
+.path-progress .progress-bar {
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius-sm);
+}
+
+.path-progress span {
+    font-size: 0.875rem;
+    color: var(--secondary-color);
+}
+
+/* Cards de Cursos */
+.course-card {
+    height: 100%;
+    transition: var(--transition-normal);
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.course-card .card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.course-card .card-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.course-card .card-text {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.course-card .progress {
+    height: 0.5rem;
+    background-color: #e9ecef;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 0.75rem;
+}
+
+.course-card .progress-bar {
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius-sm);
+}
+
+.course-card .badge {
+    padding: 0.5em 0.75em;
+    font-weight: 500;
+}
+
+/* Status dos Cursos */
+.course-card.pending {
+    border-left: 4px solid var(--warning-color);
+}
+
+.course-card.in-progress {
+    border-left: 4px solid var(--primary-color);
+}
+
+.course-card.completed {
+    border-left: 4px solid var(--success-color);
+}
+
+/* Modal de Erro */
+.modal-content {
+    border: none;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 1.5rem;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-footer {
+    border-top: 1px solid var(--border-color);
+    padding: 1rem 1.5rem;
+}
+
+/* Toast Notificações */
+.toast {
+    background-color: white;
+    border: none;
+    box-shadow: var(--shadow-md);
+    border-radius: var(--border-radius-sm);
+}
+
+.toast-header {
+    background-color: var(--light-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.toast-body {
+    padding: 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .content-header {
+        padding: 0.75rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .learning-paths {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group {
+        margin-bottom: 0.75rem;
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Estados de Loading */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 1;
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+} 

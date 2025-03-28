@@ -1,0 +1,187 @@
+/* Painel de Demonstração */
+.demo-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    z-index: var(--z-demo-panel);
+    transform: translateX(100%);
+    transition: transform var(--transition-fast);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.demo-panel.active {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: all;
+}
+
+.demo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.demo-header h3 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: var(--font-size-lg);
+}
+
+.btn-toggle-demo {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    transition: background-color var(--transition-fast);
+}
+
+.btn-toggle-demo:hover {
+    background-color: var(--bg-secondary);
+}
+
+.demo-content {
+    padding: var(--spacing-md);
+}
+
+.demo-flows,
+.demo-controls,
+.demo-progress {
+    margin-bottom: var(--spacing-lg);
+}
+
+.demo-flows h4,
+.demo-controls h4,
+.demo-progress h4 {
+    margin: 0 0 var(--spacing-sm);
+    color: var(--text-secondary);
+    font-size: var(--font-size-md);
+}
+
+.flow-buttons,
+.control-buttons {
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+.btn-flow,
+.btn-control {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.btn-flow:hover,
+.btn-control:hover {
+    background: var(--bg-tertiary);
+    transform: translateY(-1px);
+}
+
+.btn-flow .icon,
+.btn-control .icon {
+    font-size: var(--font-size-lg);
+}
+
+/* Barra de Progresso */
+.progress-bar {
+    height: 4px;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    margin-bottom: var(--spacing-xs);
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--color-primary);
+    width: 0;
+    transition: width var(--transition-fast);
+}
+
+.progress-text {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+/* Overlay de Demonstração */
+.demo-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: var(--z-demo-overlay);
+    pointer-events: none;
+}
+
+/* Destaque de Elementos */
+.highlight {
+    position: relative;
+    z-index: var(--z-highlight);
+}
+
+.highlight::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--border-radius-md);
+    animation: pulse 2s infinite;
+}
+
+/* Animações */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .demo-panel {
+        top: auto;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+    }
+
+    .demo-content {
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+
+    .flow-buttons,
+    .control-buttons {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+} 

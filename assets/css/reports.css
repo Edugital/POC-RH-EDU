@@ -1,0 +1,239 @@
+/* Sistema de Cores Institucionais */
+:root {
+    /* Cores Principais */
+    --color-primary: #E31837;    /* Vermelho Águia Branca */
+    --color-secondary: #003B70;  /* Azul Escuro */
+    --color-white: #FFFFFF;
+    
+    /* Tons de Cinza para Hierarquia */
+    --color-gray-100: #F8F9FA;
+    --color-gray-200: #E9ECEF;
+    --color-gray-300: #DEE2E6;
+    --color-gray-400: #CED4DA;
+    --color-gray-500: #ADB5BD;
+    --color-gray-600: #6C757D;
+    --color-gray-700: #495057;
+    --color-gray-800: #343A40;
+    --color-gray-900: #212529;
+    
+    /* Gradientes */
+    --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, #C41230 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--color-secondary) 0%, #002B5C 100%);
+    
+    /* Sombras */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+/* Tipografia */
+.report-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--color-gray-900);
+    margin-bottom: 1.5rem;
+}
+
+.report-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--color-gray-800);
+    margin-bottom: 1rem;
+}
+
+.report-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--color-gray-700);
+    line-height: 1.5;
+}
+
+/* Layout e Grid */
+.report-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--color-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.reports-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.chart-container {
+    position: relative;
+    height: 300px;
+    margin-bottom: 1.5rem;
+    background: var(--color-white);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .reports-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .chart-container {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .reports-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .report-section {
+        padding: 1rem;
+    }
+    
+    .metric-card {
+        padding: 1rem;
+    }
+    
+    .metric-value {
+        font-size: 1.5rem;
+    }
+    
+    .chart-container {
+        height: 200px;
+    }
+    
+    .export-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .btn-export {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Espaçamento e Alinhamento */
+.content {
+    padding: 2rem;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.export-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.report-filters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--color-white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Cards com Altura Dinâmica */
+.metric-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 120px;
+    transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Animações e Transições */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.metric-card {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Loading States */
+.skeleton-loading {
+    background: linear-gradient(90deg, var(--color-gray-200) 25%, var(--color-gray-300) 50%, var(--color-gray-200) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Melhorias de Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    .metric-card,
+    .btn-export,
+    .chart-container {
+        transition: none;
+        animation: none;
+    }
+}
+
+/* Suporte a Modo Escuro */
+@media (prefers-color-scheme: dark) {
+    .report-section,
+    .chart-container,
+    .metric-card.standard {
+        background: var(--color-gray-800);
+        color: var(--color-white);
+    }
+    
+    .metric-label {
+        color: var(--color-gray-300);
+    }
+    
+    .report-filters {
+        background: var(--color-gray-800);
+    }
+    
+    .filter-group label {
+        color: var(--color-gray-300);
+    }
+    
+    .filter-group select {
+        background: var(--color-gray-700);
+        color: var(--color-white);
+        border-color: var(--color-gray-600);
+    }
+} 
